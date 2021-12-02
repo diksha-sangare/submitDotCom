@@ -17,6 +17,7 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+           
         </style>
     </head>
 <body class="antialiased">
@@ -46,19 +47,35 @@
 					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="dashboard">Dashboard</a>
 				</li>
 				<li class="mr-3">
-					<a class="inline-block text-gray-600  no-underline font-semibold xl:text-md  xl:ml-0 ml-3 rounded-md  hover:underline py-2 px-4"
+					<a id="openBtn"  class="inline-block text-gray-600  no-underline font-semibold xl:text-md  xl:ml-0 ml-3 rounded-md  hover:underline py-2 px-4"
             style="background:#00FFF2;" href="#">Get Updates</a>
 				</li>
         @else
         <li class="mr-3">
 					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="login">Sign in / Sign up</a>
 				</li>
+      
         @endauth
 				
 			</ul>
 		</div>
+
 	</nav>
 
+
+       <!--Make Model-->
+  <div style="margin-left:55%;" id="modal" 
+      class="mt-16 rounded-md modal-bg transition-opacity duration-500 opacity-0 pt-2 fixed w-1/2 h-full left-0 z-10 overflow-auto">
+        <div  class="modal-content relative rounded-md m-auto bg-gray-100 w-1/2 shadow-lg">
+          <div class="p-4 ">
+            <input style="border:3px solid #EFF0F0;box-shadow: inset 1px 1px 2px 0px rgb(0 0 0 / 2%);" class="w-full h-12 px-4 mb-2 text-base text-gray-300 placeholder-gray-400   rounded-md focus:outline-none" type="text" placeholder="jane@example.com" />
+            <button class="w-full h-12 px-6 text-white uppercase font-bold transition-colors duration-150  rounded-md
+              focus:shadow-outline hover:bg-indigo-800" style="background-image: linear-gradient(-180deg, #42AEE6 0%, #3199DE 100%);
+              box-shadow: inset 1px 1px 2px 0px rgb(0 0 0 / 2%);">Notify Me</button>
+          </div>
+        </div>
+  </div>
+    <!-- End Make Model-->
 
 {{ $slot }}
 
@@ -163,9 +180,32 @@
 
   <script>
         //Javascript to toggle the menu
-        document.getElementById('nav-toggle').onclick = function(){
-          document.getElementById("nav-content").classList.toggle("hidden");
+        // document.getElementById('nav-toggle').onclick = function(){
+        //   document.getElementById("nav-content").classList.toggle("hidden");
+        // }
+
+        var modal = document.querySelector("#modal");
+        var openBtn = document.querySelector("#openBtn");
+        var closeBtn = document.querySelector(".closeBtn");
+
+        openBtn.onclick = function() {
+            modal.classList.add('opacity-100');
+            modal.classList.add('z-50');
         }
-	</script>
+
+        closeBtn.onclick = function() {
+            modal.classList.remove('opacity-100');
+            modal.classList.remove('z-50');
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.classList.remove('opacity-100');
+                modal.classList.remove('z-50');
+            }
+        }
+    </script>
 </body>
+
+
 </html>
