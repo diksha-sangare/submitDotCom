@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +19,10 @@ Route::get('/', function () {
 });
 
 
-// Route::get('login',[SessionController::class,'login']);
-// Route::get('register',[SessionController::class,'register']);
+Route::get('login',[SessionController::class,'login']);
+Route::post('login',[SessionController::class,'loginuser']);
+
+Route::get('register',[SessionController::class,'register']);
+Route::post('register',[SessionController::class,'createuser']);
+
+Route::get('dashboard',[SessionController::class,'dashboard']);
