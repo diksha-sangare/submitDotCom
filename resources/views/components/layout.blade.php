@@ -20,14 +20,19 @@
             #modal
             {
               margin-left:60%;
+              margin-top:70px;
+              width:700px;
+              height:auto;
+              
             }
             @media screen and (max-width: 653px) and (min-width: 320px) {
-              #modal
-              {
-                margin-left:-93px;
-                margin-top:185px;
-                width:520px;
-              }
+                #modal
+                {
+                  margin-left:-93px;
+                  margin-top:93px;
+                  width:520px;
+                  height:auto;
+                }
             }
            
         </style>
@@ -66,6 +71,10 @@
         <li class="mr-3">
 					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="login">Sign in / Sign up</a>
 				</li>
+      	<li class="mr-3">
+					<a id="openBtn"  class="inline-block text-gray-600  no-underline font-semibold xl:text-md  xl:ml-0 ml-3 rounded-md  hover:underline py-2 px-4"
+            style="background:#00FFF2;" href="#">Get Updates</a>
+				</li>
         @endauth
 				
 			</ul>
@@ -76,7 +85,7 @@
 
        <!--Make Model-->
   <div  id="modal" 
-      class="mt-16 rounded-md modal-bg transition-opacity duration-500 opacity-0 pt-2 fixed w-1/2 h-full left-0 z-10 overflow-auto">
+      class="mt-16 rounded-md modal-bg transition-opacity duration-500 opacity-0 pt-2 fixed w-1/2  left-0 z-10 overflow-auto">
         <div  class="modal-content relative rounded-md m-auto bg-gray-100 w-1/2 shadow-lg">
           <div class="p-4 ">
             <input style="border:3px solid #EFF0F0;box-shadow: inset 1px 1px 2px 0px rgb(0 0 0 / 2%);" class="w-full h-12 px-4 mb-2 text-base text-gray-300 placeholder-gray-400   rounded-md focus:outline-none" type="text" placeholder="jane@example.com" />
@@ -94,8 +103,8 @@
 <footer class="border-t border-gray-300">
       <div class=" container flex flex-col flex-wrap px-4 py-16 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap  " >
         <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left" >
-          <a class="flex items-center justify-center text-4xl font-bold text-blue-700 md:justify-start " >
-            Logo
+          <a class="flex items-center justify-center text-4xl font-bold  md:justify-start " style="color:#00ccd2;">
+          Submit.co
           </a>
           <p class="mt-2 text-sm text-justify text-gray-500">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at sequi cum, impedit fuga in placeat illo eum minima possimus est perferendis distinctio explicabo eos natus consequuntur blanditiis  odio optio?

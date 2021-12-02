@@ -1,6 +1,6 @@
 <x-layout>
     <div class="flex flex-wrap  xl:mt-24 mt-24 xl:mb-0 mb-20">
-        <div class="xl:w-1/2 w-full  hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen">
+        <div class="xl:w-1/2 w-full  hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-auto">
             <div class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">
                 <p class="xl:text-4xl text-md font-bold text-gray-600"> Submit.co</p>
                 <p class="text-gray-600 xl:text-sm text-xs font-semibold no-underline">Where to get press coverage for your startup</p>
@@ -37,7 +37,7 @@
                             </button>
                         </div>
                     </form>
-                    <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
+                    <div class="mt-12 mb-20 text-sm font-display font-semibold text-gray-700 text-center">
                         Already have an account? <a class="cursor-pointer font-bold" style="color:#00ccd2;" href="login">Sign In</a>
                     </div>
         </div>
