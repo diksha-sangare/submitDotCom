@@ -17,6 +17,18 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            #modal
+            {
+              margin-left:60%;
+            }
+            @media screen and (max-width: 653px) and (min-width: 320px) {
+              #modal
+              {
+                margin-left:-93px;
+                margin-top:185px;
+                width:520px;
+              }
+            }
            
         </style>
     </head>
@@ -54,7 +66,6 @@
         <li class="mr-3">
 					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="login">Sign in / Sign up</a>
 				</li>
-      
         @endauth
 				
 			</ul>
@@ -64,7 +75,7 @@
 
 
        <!--Make Model-->
-  <div style="margin-left:55%;" id="modal" 
+  <div  id="modal" 
       class="mt-16 rounded-md modal-bg transition-opacity duration-500 opacity-0 pt-2 fixed w-1/2 h-full left-0 z-10 overflow-auto">
         <div  class="modal-content relative rounded-md m-auto bg-gray-100 w-1/2 shadow-lg">
           <div class="p-4 ">
@@ -180,9 +191,9 @@
 
   <script>
         //Javascript to toggle the menu
-        // document.getElementById('nav-toggle').onclick = function(){
-        //   document.getElementById("nav-content").classList.toggle("hidden");
-        // }
+        document.getElementById('nav-toggle').onclick = function(){
+          document.getElementById("nav-content").classList.toggle("hidden");
+        }
 
         var modal = document.querySelector("#modal");
         var openBtn = document.querySelector("#openBtn");
