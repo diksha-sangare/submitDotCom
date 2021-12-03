@@ -19,10 +19,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('login',[SessionController::class,'login']);
-Route::post('login',[SessionController::class,'loginuser']);
+Route::get('login', [SessionController::class, 'login']);
+Route::post('login', [SessionController::class, 'loginuser']);
+Route::get('logout', [SessionController::class, 'logout']);
 
-Route::get('register',[SessionController::class,'register']);
-Route::post('register',[SessionController::class,'createuser']);
+Route::get('register', [SessionController::class, 'register']);
+Route::post('register', [SessionController::class, 'createuser']);
 
-Route::get('dashboard',[SessionController::class,'dashboard']);
+Route::get('dashboard', [SessionController::class, 'dashboard']);
