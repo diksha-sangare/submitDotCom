@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Publication;
 use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
@@ -18,19 +19,36 @@ class SessionController extends Controller
 
     public function loginuser()
     {
+
         $attributes = request()->validate([
             'email' => 'required|email',
             'password' => 'required'
         ]);
 
-        // if (auth()->attempt($attributes)) {
+        if (auth()->attempt($attributes)) {
             session()->regenerate();
-            return redirect('dashboard');
-        // }
+
+            return redirect('/');
+        }
 
         throw ValidationException::withMessages([
-            'email' => 'Your provided credentials not be verified.'
+            'email' => 'Your provided credentials could not be verified.'
         ]);
+
+
+        // $attributes = request()->validate([
+        //     'email' => 'required|email',
+        //     'password' => 'required'
+        // ]);
+
+        // if (auth()->attempt($attributes)) {
+        //     session()->regenerate();
+        //     return redirect('dashboard');
+        // }
+
+        // throw ValidationException::withMessages([
+        //     'email' => 'Your provided credentials not be verified.'
+        // ]);
 
     }
 
@@ -64,9 +82,20 @@ class SessionController extends Controller
 
 
     // dashboard
-    public function dashboard()
+ 
+     public function dashboard()
     {
-        return view('user.dashboard');
+        return view('user.dashboard',[
+            'publication' => Publication::paginate()
+        ]);
+    }
+
+    public function publicationDetails(Publication $publication)
+    {
+
+        return view('publication.publicationDetails',[
+            'publication' => $publication->paginate(5)
+        ]);
     }
 
 }

@@ -13,7 +13,12 @@
                         @csrf
                         <div class="mt-8">
                             <div class="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
-                            <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none" name="email" style="border-color:#00ccd2;" type="text" placeholder="eg. mike@gmail.com">
+                            <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none" value="{{ old('email') }}" name="email" style="border-color:#00ccd2;" type="text" placeholder="eg. mike@gmail.com">
+
+                            @error('email')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
+
                         </div>
                         <div class="mt-8">
                             <div class="flex justify-between items-center">
@@ -22,6 +27,9 @@
                                         cursor-pointer" style="color:#00ccd2;">Forgot Password?</a></div>
                             </div>
                             <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none " name="password" style="border-color:#00ccd2;" type="password" placeholder="Enter your password">
+                            @error('password')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                         </div>
                         <div class="mt-10">
                             <button class=" text-gray-700 p-4 w-full rounded-full tracking-wide

@@ -1,6 +1,10 @@
 <x-layout>
 
+
 <div class="container xl:mt-32 mx-auto xl:mb-32 mt-32 mb-32">
+	<a href="publication" style="background-color: rgb(79, 176, 174);color: rgb(255, 255, 255);"
+						 class=" w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium" 
+						>Add a publication</a>
 		<table class="w-full  flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
 			<thead class="text-white">
 			@foreach ($publication as $publications )	

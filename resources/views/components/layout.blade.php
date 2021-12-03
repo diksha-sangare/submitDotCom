@@ -57,8 +57,11 @@
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden pt-6 lg:pt-0" id="nav-content">
 			<ul class="list-reset lg:flex justify-end flex-1 items-center">
         @auth 
+
+        <span class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}!</span>
+        
         <li class="mr-3">
-					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="#">Add a publication</a>
+					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="publicationDetails">Publication</a>
 				</li>
         <li class="mr-3">
 					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="dashboard">Dashboard</a>
@@ -67,13 +70,10 @@
 					<a id="openBtn"  class="inline-block text-gray-600  no-underline font-semibold xl:text-md  xl:ml-0 ml-3 rounded-md  hover:underline py-2 px-4"
             style="background:#00FFF2;" href="#">Get Updates</a>
 				</li>
+       
         @else
         <li class="mr-3">
 					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="login">Sign in / Sign up</a>
-				</li>
-      	<li class="mr-3">
-					<a id="openBtn"  class="inline-block text-gray-600  no-underline font-semibold xl:text-md  xl:ml-0 ml-3 rounded-md  hover:underline py-2 px-4"
-            style="background:#00FFF2;" href="#">Get Updates</a>
 				</li>
         @endauth
 				
@@ -84,7 +84,7 @@
 
 
        <!--Make Model-->
-  <div  id="modal" 
+  <!-- <div  id="modal" 
       class="mt-16 rounded-md modal-bg transition-opacity duration-500 opacity-0 pt-2 fixed w-1/2  left-0 z-10 overflow-auto">
         <div  class="modal-content relative rounded-md m-auto bg-gray-100 w-1/2 shadow-lg">
           <div class="p-4 ">
@@ -94,7 +94,7 @@
               box-shadow: inset 1px 1px 2px 0px rgb(0 0 0 / 2%);">Notify Me</button>
           </div>
         </div>
-  </div>
+  </div> -->
     <!-- End Make Model-->
 
 {{ $slot }}
