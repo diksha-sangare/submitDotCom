@@ -8,7 +8,8 @@
 		<table class="w-full  flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
 			<thead class="text-white">
 			@foreach ($publication as $publications )	
-				<tr class="bg-blue-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+				<tr style="background:#00ccd2;
+				" class=" flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
 					<th class="p-3 text-left text-sm">URL</th>
 					<th class="p-3 text-left text-sm">Submit page</th>
 					<th class="p-3 text-left text-sm">Twitter Username</th>
@@ -53,6 +54,14 @@
 		</table>
         {{ $publication->links() }}
 	</div>
+
+	@if(session()->has('success'))
+		<div x-data="{show:true}" x-init="setTimeout(() => show = false , 4000)" x-show="show" class="fixed bg-blue-500 text-white py-2 px-4 rounded bottom-3 right-3 text-sm">
+			<p>{{ session('success') }}</p>
+		</div>
+	@endif
+
+
 </x-layout>
 
 <style>

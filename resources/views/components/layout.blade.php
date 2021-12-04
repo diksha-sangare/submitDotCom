@@ -77,7 +77,7 @@
           <form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-6">
             @csrf
             <!--   <a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="logout">Sign Out</a> -->
-            <button type="submit">Log Out</button>
+            <button type="submit" class="inline-block py-2 px-4 text-white text-lg  font-semibold hover:underline no-underline hover:bg-transparent rounded-md">Log Out</button>
           </form>
         </li>
        

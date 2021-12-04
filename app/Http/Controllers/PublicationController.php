@@ -39,10 +39,10 @@ class PublicationController extends Controller
         ]);
     }
 
-    public function deletePublication(Publication $publication)
+    public function deletePublication(Publication $publications)
     {
-        $publication->delete();
-        return redirect('/');
+        $publications->delete();
+        return redirect('publicationDetails')->with('success', 'Publication Details Deleted!');
     }
     
 }

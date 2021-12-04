@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\PostLiked;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Publication;
 use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
@@ -19,7 +20,6 @@ class SessionController extends Controller
 
     public function loginuser()
     {
-
         $attributes = request()->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -30,13 +30,12 @@ class SessionController extends Controller
 
             return redirect('/');
         }
-
         throw ValidationException::withMessages([
             'email' => 'Your provided credentials could not be verified.'
         ]);
-
-
     }
+
+    
 
     public function logout()
     {

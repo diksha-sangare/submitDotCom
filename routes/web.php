@@ -30,4 +30,4 @@ Route::get('dashboard',[SessionController::class,'dashboard']);
 Route::get('publication',[PublicationController::class,'publication']);
 Route::post('publication',[PublicationController::class,'addPublication']);
 Route::get('publicationDetails',[PublicationController::class,'publicationDetails']);
-Route::delete('publication',[PublicationController::class,'deletePublication']);
+Route::delete('publication/{publications}',[PublicationController::class,'deletePublication']);
