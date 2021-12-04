@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Mail\PostLiked;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
@@ -20,37 +19,23 @@ class SessionController extends Controller
 
     public function loginuser()
     {
+
         $attributes = request()->validate([
             'email' => 'required|email',
             'password' => 'required'
         ]);
 
-        // if (auth()->attempt($attributes)) {
-        //     session()->regenerate();
-        //     return redirect('dashboard');
-        // }
+        if (auth()->attempt($attributes)) {
+            session()->regenerate();
 
-        // throw ValidationException::withMessages([
-        //     'email' => 'Your provided credentials not be verified.'
-        // ]);
-
-
-        //validate the request
-        $attributes =  request()->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-
-        if (!auth()->attempt($attributes)) {
-            throw ValidationException::withMessages([
-                'email' => 'Your provided credentials could not be verified..'
-            ]);
+            return redirect('/');
         }
 
+        throw ValidationException::withMessages([
+            'email' => 'Your provided credentials could not be verified.'
+        ]);
 
 
-        session()->regenerate();
-        return redirect('dashboard');
     }
 
     public function logout()
@@ -88,10 +73,13 @@ class SessionController extends Controller
 
 
     // dashboard
-    public function dashboard()
+ 
+     public function dashboard()
     {
-        $user = auth()->user();
-        Mail::to('$user')->send(new PostLiked());
-        return view('user.dashboard');
+        return view('user.dashboard',[
+            'publication' => Publication::paginate()
+        ]);
     }
+
+
 }

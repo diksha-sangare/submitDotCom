@@ -38,9 +38,7 @@
   </style>
 </head>
 
-<body class="antialiased">
-  <!-- header -->
-  <nav style="background:#00ccd2;" class="flex items-center justify-between fixed flex-wrap  p-6  w-full z-10 top-0">
+<nav style="background:#00ccd2;" class="flex items-center justify-between fixed flex-wrap  p-6  w-full z-10 top-0">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <a class="text-white xl:w-full w-40 no-underline hover:text-white hover:no-underline" href="/">
         <span class="text-xl pl-2 font-bold"> Submit.co</span>
@@ -58,18 +56,22 @@
       </button>
     </div>
 
-    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden pt-6 lg:pt-0" id="nav-content">
-      <ul class="list-reset lg:flex justify-end flex-1 items-center">
-        @auth
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden pt-6 lg:pt-0" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+        @auth 
+
+        <span class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}!</span>
+        
         <li class="mr-3">
-          <a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="#">Add a publication</a>
-        </li>
+					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="publicationDetails">Publication</a>
+				</li>
         <li class="mr-3">
-          <a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="dashboard">Dashboard</a>
-        </li>
-        <li class="mr-3">
-          <a id="openBtn" class="inline-block text-gray-600  no-underline font-semibold xl:text-md  xl:ml-0 ml-3 rounded-md  hover:underline py-2 px-4" style="background:#00FFF2;" href="#">Get Updates</a>
-        </li>
+					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="dashboard">Dashboard</a>
+				</li>
+				<li class="mr-3">
+					<a id="openBtn"  class="inline-block text-gray-600  no-underline font-semibold xl:text-md  xl:ml-0 ml-3 rounded-md  hover:underline py-2 px-4"
+            style="background:#00FFF2;" href="#">Get Updates</a>
+				</li>
         <li class="mr-3">
 
           <form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-6">
@@ -78,13 +80,11 @@
             <button type="submit">Log Out</button>
           </form>
         </li>
+       
         @else
         <li class="mr-3">
-          <a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="login">Sign in / Sign up</a>
-        </li>
-        <li class="mr-3">
-          <a id="openBtn" class="inline-block text-gray-600  no-underline font-semibold xl:text-md  xl:ml-0 ml-3 rounded-md  hover:underline py-2 px-4" style="background:#00FFF2;" href="#">Get Updates</a>
-        </li>
+					<a class="inline-block py-2 px-4 text-white xl:text-md  font-semibold hover:underline no-underline hover:bg-transparent rounded-md" href="login">Sign in / Sign up</a>
+				</li>
         @endauth
 
       </ul>
@@ -92,21 +92,19 @@
 
   </nav>
 
-
-  <!--Make Model-->
-  <div id="modal" class="mt-16 rounded-md modal-bg transition-opacity duration-500 opacity-0 pt-2 fixed w-1/2  left-0 z-10 overflow-auto">
-    <div class="modal-content relative rounded-md m-auto bg-gray-100 w-1/2 shadow-lg">
-      <div class="p-4 ">
-        <input style="border:3px solid #EFF0F0;box-shadow: inset 1px 1px 2px 0px rgb(0 0 0 / 2%);" class="w-full h-12 px-4 mb-2 text-base text-gray-300 placeholder-gray-400   rounded-md focus:outline-none" type="text" placeholder="message" />
-        <input style="border:3px solid #EFF0F0;box-shadow: inset 1px 1px 2px 0px rgb(0 0 0 / 2%);" class="w-full h-12 px-4 mb-2 text-base text-gray-300 placeholder-gray-400   rounded-md focus:outline-none" type="text" placeholder="jane@example.com" />
-
-        <button class="w-full h-12 px-6 text-white uppercase font-bold transition-colors duration-150  rounded-md
+       <!--Make Model-->
+  <!-- <div  id="modal" 
+      class="mt-16 rounded-md modal-bg transition-opacity duration-500 opacity-0 pt-2 fixed w-1/2  left-0 z-10 overflow-auto">
+        <div  class="modal-content relative rounded-md m-auto bg-gray-100 w-1/2 shadow-lg">
+          <div class="p-4 ">
+            <input style="border:3px solid #EFF0F0;box-shadow: inset 1px 1px 2px 0px rgb(0 0 0 / 2%);" class="w-full h-12 px-4 mb-2 text-base text-gray-300 placeholder-gray-400   rounded-md focus:outline-none" type="text" placeholder="jane@example.com" />
+            <button class="w-full h-12 px-6 text-white uppercase font-bold transition-colors duration-150  rounded-md
               focus:shadow-outline hover:bg-indigo-800" style="background-image: linear-gradient(-180deg, #42AEE6 0%, #3199DE 100%);
               box-shadow: inset 1px 1px 2px 0px rgb(0 0 0 / 2%);">Notify Me</button>
-      </div>
-    </div>
-  </div>
-  <!-- End Make Model-->
+          </div>
+        </div>
+  </div> -->
+    <!-- End Make Model-->
 
   {{ $slot }}
 

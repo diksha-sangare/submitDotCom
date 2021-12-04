@@ -13,8 +13,8 @@
                             src="https://png.pngitem.com/pimgs/s/146-1468281_profile-icon-png-transparent-profile-picture-icon-png.png"
                             alt="">
                     </div>
-                    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Jane Doe</h1>
-                    <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
+                    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ auth()->user()->userName }}</h1>
+                    <h3 class="text-gray-600 font-lg text-semibold leading-6">{{ auth()->user()->name }}</h3>
                     <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
                         consectetur adipisicing elit.
                         Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
@@ -27,7 +27,9 @@
                         </li>
                         <li class="flex items-center py-3">
                             <span>Member since</span>
-                            <span class="ml-auto">Nov 07, 2016</span>
+                            <span class="ml-auto">
+                            <?= date('M d, Y', strtotime(auth()->user()->created_at))  ?>  
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -54,17 +56,17 @@
                         <div class="grid md:grid-cols-2 text-sm pt-5">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">User Name</div>
-                                <div class="px-4 py-2">Jane</div>
+                                <div class="px-4 py-2">{{ auth()->user()->userName }}</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Email.</div>
                                 <div class="px-4 py-2">
-                                    <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
+                                    <a class="text-blue-800" href="mailto:{{ auth()->user()->email }}">{{ auth()->user()->email }}</a>
                                 </div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Name</div>
-                                <div class="px-4 py-2">Doe</div>
+                                <div class="px-4 py-2">{{ auth()->user()->name }}</div>
                             </div>
                             
                            
@@ -92,7 +94,17 @@
                                 <span class="tracking-wide">Publication</span>
                             </div>
                             <ul class="list-inside space-y-2">
+
+                            @foreach ($publication as $publications )
+                                @if (auth()->user()->id == $publications->user_id)  
                                 <li>
+                                    <div class="text-teal-600">{{ $publications->url }}</div>
+                                    <div class="text-gray-500 text-xs"><?= date('M d, Y', strtotime($publications->created_at))  ?></div>
+                                </li>
+                                @endif
+                           @endforeach
+
+                                <!-- <li>
                                     <div class="text-teal-600">Owner at Her Company Inc.</div>
                                     <div class="text-gray-500 text-xs">March 2020 - Now</div>
                                 </li>
@@ -107,7 +119,7 @@
                                 <li>
                                     <div class="text-teal-600">Owner at Her Company Inc.</div>
                                     <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
 
