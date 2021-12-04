@@ -38,6 +38,24 @@
   </style>
 </head>
 
+<nav style="background:#00ccd2;" class="flex items-center justify-between fixed flex-wrap  p-6  w-full z-10 top-0">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <a class="text-white xl:w-full w-40 no-underline hover:text-white hover:no-underline" href="/">
+        <span class="text-xl pl-2 font-bold"> Submit.co</span>
+        <p class="text-white xl:text-sm text-xs font-semibold pl-2 no-underline  hover:text-white hover:no-underline">Where to get press coverage for your startup</p>
+
+      </a>
+    </div>
+
+    <div class="block lg:hidden">
+      <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </button>
+    </div>
+
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden pt-6 lg:pt-0" id="nav-content">
 			<ul class="list-reset lg:flex justify-end flex-1 items-center">
         @auth 
