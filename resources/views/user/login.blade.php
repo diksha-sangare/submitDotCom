@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="xl:w-1/2 w-full mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-28 xl:px-24 xl:max-w-2xl">
-                <h2 class="text-center text-4xl font-display font-semibold lg:text-left xl:text-5xl
+            <h2 class="text-center text-4xl font-display font-semibold lg:text-left xl:text-5xl
                     xl:text-bold" style="color:#00ccd2;">Sign In</h2>
                     <form action="login" method="post">
                         @csrf
@@ -35,13 +35,13 @@
                             <button class=" text-gray-700 p-4 w-full rounded-full tracking-wide
                                 font-bold font-display focus:outline-none  focus:shadow-outline hover:bg-blue-500
                                 shadow-lg" style="background:#00FFF2;">
-                                Sign In
-                            </button>
-                        </div>
-                    </form>
-                    <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                            Don't have an account ? <a class="cursor-pointer font-bold" style="color:#00ccd2;" href="register">Sign up</a>
-                    </div>
+                        Sign In
+                    </button>
+                </div>
+            </form>
+            <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
+                Don't have an account ? <a class="cursor-pointer font-bold" style="color:#00ccd2;" href="register">Sign up</a>
+            </div>
         </div>
-    </div>    
+    </div>
 </x-layout>

@@ -19,10 +19,11 @@ use App\Http\Controllers\Controller;
 Route::get('/',[Controller::class,'index']);
 
 Route::get('login',[SessionController::class,'login'])->middleware('guest');
-Route::post('login',[SessionController::class,'loginuser'])->middleware('guest');;
+Route::post('login',[SessionController::class,'loginuser'])->middleware('guest');
+Route::post('logout', [SessionController::class, 'logout']);
 
-Route::get('register',[SessionController::class,'register']);
-Route::post('register',[SessionController::class,'createuser']);
+Route::get('register', [SessionController::class, 'register']);
+Route::post('register', [SessionController::class, 'createuser']);
 
 Route::get('dashboard',[SessionController::class,'dashboard']);
 

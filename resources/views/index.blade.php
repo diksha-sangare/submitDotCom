@@ -13,7 +13,6 @@
 					<th class="p-3 text-left text-sm">Categories</th>
 					<th class="p-3 text-left text-sm">Regions</th>
 					<th class="p-3 text-left text-sm">Platforms</th>
-					<th class="p-3 text-left text-sm" width="110px">Actions</th>
 				</tr>
 				@endforeach						
                 
@@ -30,16 +29,6 @@
 					<td class="border-grey-light border hover:bg-gray-100 p-3 text-sm">{{ $publications->websiteCategories }}</td>
 					<td class="border-grey-light border hover:bg-gray-100 p-3 text-sm">{{ $publications->regions }}</td>
 					<td class="border-grey-light border hover:bg-gray-100 p-3 text-sm">{{ $publications->platforms }}</td>
-					<td class="border-grey-light border hover:bg-gray-100 p-3 text-sm text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
-						@if (auth()->user()->id == $publications->user_id)  
-							<form method="POST" action="/publication/{{ $publications->id }}">
-                                            @csrf
-                                            @method('DELETE')
-
-                                <button class="text-xs text-red-400">Delete</button>
-                            </form>
-					 	@endif
-                    </td>
 				</tr>
                 @endforeach
 
